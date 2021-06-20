@@ -62,9 +62,15 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'stack.pipelines.StackPipeline': 300,
-#}
+
+# Create the database that we plan to use to save all of our crawled data
+ITEM_PIPELINES = {
+   'stack.pipelines.MongoDBPipeline',
+}
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "stackoverflow"
+MONGODB_COLLECTION = "questions"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
